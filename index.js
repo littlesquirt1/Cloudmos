@@ -4,6 +4,8 @@ const http = require('http');
 const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
+var cloudvars = []
+var cloud = []
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
@@ -20,9 +22,13 @@ app.get('/script.js', (req, res) => {
 
 io.on('connection', (socket) => {
   console.log('a user connected');
+  socket.broadcast.emit('cloudvar', cloudvars)
   socket.on('cloudvar', (msg) => {
     console.log(msg)
-    socket.broadcast.emit('cloudvar', msg)
+    if (!(cloudvars == msg && msg == null)) {
+      cloudvars = msg
+      socket.broadcast.emit('cloudvar', msg)
+    }
   });
 });
 

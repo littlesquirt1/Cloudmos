@@ -45,28 +45,27 @@ html,body {
   right: 0;
 }
 
-.cloud-icon {
+.icon {
   position: absolute;
-  right: 10px;
   cursor: pointer;
   top: 12px;
 }
 
-.cloud-icon .s0 {
+.icon .s0 {
   fill: none;
   stroke: #ddd;
   stroke-width: 2;
 }
 
-.cloud-icon .s1 {
+.icon .s1 {
   fill: #ddd;
 } 
 
-.cloud-icon:hover .s0 {
+.icon:hover .s0 {
   stroke: #fff;
 }
 
-.cloud-icon:hover .s1 {
+.icon:hover .s1 {
   fill: #fff;
 } 
 
@@ -111,4 +110,5 @@ html,body {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 25px;
   z-index: 1000;
+  overflow: scroll;
 }
